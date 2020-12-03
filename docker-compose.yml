@@ -23,7 +23,7 @@ services:
     volumes: 
       - db_volume:/var/lib/mysql
     ports:
-      - "6033:3306"
+      - "6038:3306"
     environment: 
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: direct_home_dev

@@ -11,9 +11,11 @@ WORKDIR /var/www/html
 
 COPY composer.json composer.lock ./
 
-RUN composer install --no-scripts --no-autoloader
+RUN composer install --no-scripts
 
 COPY . .
+
+RUN chmod -R 777 storage && chmod -R 777 bootstrap/cache
 
 EXPOSE 8000
 
