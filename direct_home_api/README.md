@@ -1,1 +1,0 @@
-Crea un archivo que se llame .env y copia todo lo que esta en el .env.example ahí

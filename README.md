@@ -1,3 +1,15 @@
-Descarga e instala docker y luego abre una consola en este path y corre docker-compose build y luego docker-compose up
+# Instalacion del entorno:
 
-Con eso tienes la app react en el puerto 3000, la app laravel en el puerto 8000 y la base de datos en el puerto 6038
+    - Descarga e instala Docker y docker-compose
+    - Clona el repositorio a tu local
+    - Crea un archivo .env y copia el contenido de .env.example
+    - Abre una consola en el root path del proyecto
+    - Corre docker-compose build
+    - Luego docker-compose up
+
+
+## Las App`s corren en:
+
+    - React en http://localhost:3000
+    - Laravel en http://localhost:8000
+    - MySql en http://localhost:6038
