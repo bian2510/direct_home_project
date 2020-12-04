@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+  app:
+    build:
+      context: ./direct_home_app
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./direct_home_app/:/direct_home_app/
+  api:
+    build:
+      context: ./direct_home_api
+      dockerfile: Dockerfile
+    ports: 
+      - "8000:8000"
+    volumes: 
+      - ./direct_home_api/:/direct_home_api/
+    depends_on: 
+      - db
+  db:
+    image: mysql:8.0.22
+    volumes: 
+      - db_volume:/var/lib/mysql
+    ports:
+      - "6038:3306"
+    environment: 
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: direct_home_dev
+
+volumes:
+  db_volume:
