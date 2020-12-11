@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Convenciones
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Archivos deberan seguir esta estructura
 
-## Available Scripts
+- Primero los imports
+- Segundo la funcion que va a retornar ese componente
+### Dentro de la funcion
 
-In the project directory, you can run:
+- Primero las props
+- Segundo los states (hooks, state de redux, o local storage)
+- Tercero otras variables
+- Cuarto hadlres y funciones
+- Quinto nodos de elementos que seran renderizados en el return de la funcion
+- Sexto elemento que sera retornado y contendra los nodos hechos anteriormente
 
-### `yarn start`
+## Funciones
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Las funciones deben ser nombradas aplicando camelCase. Veamos algunos ejemplos:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- getUser()
+- setIsAdminAttribute()
 
-### `yarn test`
+## Variables
+Las variables deben de ser descriptivas. Estas deben aplicar el estilo camelCase. Veamos algunos ejemplos:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- $admins = User::isAdmin()->get();
+- $activeUser = User::active()->first();
 
-### `yarn build`
+## Carpetas y Archivos
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Todas las carpetas y archivos van a estar nombrados usando camelCase (primera letra minuscula y luego las demas palabras con primera letra en mayuscula).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- usersForms
+- userUtils.js
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Componentes
 
-### `yarn eject`
+Los componentes de React van a ser nombrados usando PascalCase (todas las palabras tienen en mayuscula su primera letra).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- UserCard.jsx
+- UserForm.jsx
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## CSS
+Vamos a utilizar metodologia BEM (Block Element Modifier) Ya que cada elemento del UI va a ser armado con componentes. Una guia rapida de esta metodologia se puede encontrar [aca](https://www.freecodecamp.org/news/css-naming-conventions-that-will-save-you-hours-of-debugging-35cea737d849/).:
