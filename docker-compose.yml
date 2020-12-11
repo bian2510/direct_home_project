@@ -1,6 +1,7 @@
 version: "3.8"
 services:
   app:
+    container_name: app
     build:
       context: ./direct_home_app
       dockerfile: Dockerfile
@@ -9,6 +10,7 @@ services:
     volumes:
       - ./direct_home_app/:/direct_home_app/
   api:
+    container_name: api
     build:
       context: ./direct_home_api
       dockerfile: Dockerfile
@@ -19,6 +21,7 @@ services:
     depends_on: 
       - db
   db:
+    container_name: db
     image: mysql:8.0.22
     volumes: 
       - db_volume:/var/lib/mysql
