@@ -11,6 +11,6 @@ class PropertyImage extends Model
 
     public function property()
     {
-        return $this->hasOne(Property::class);
+        return $this->belongsTo(Property::class);
     }
 }
