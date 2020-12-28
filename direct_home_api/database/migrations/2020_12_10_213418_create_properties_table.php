@@ -18,15 +18,14 @@ class CreatePropertiesTable extends Migration
             $table->text('description');
             $table->integer('price');
             $table->integer('ambient_numbers');
-            $table->boolean('property_status')->comment('1 para ACTIVO, 0 para INACTIVO');
             $table->string('property_type');
 
             $table->timestamps();
 
-            $table->foreignId('user_id')->constrained('users')->after('id');
-            $table->foreignId('address_id')->constrained('addresses')->after('user_id');
-            $table->foreignId('property_feature_id')->constrained('property_features')->after('address_id');
-            $table->foreignId('property_image_id')->constrained('property_images')->after('property_feature_id');
+            $table->foreignId('user_id')->constrained('users')->nulleable(true);
+            $table->foreignId('address_id')->constrained('addresses')->nulleable(true);
+            $table->foreignId('property_feature_id')->constrained('property_features')->nulleable(true);
+            $table->foreignId('property_image_id')->constrained('property_images')->nulleable(true);
         });
     }
 
