@@ -19,7 +19,7 @@ class Property extends Model
         return $this->hasOne(PropertyFeature::class);
     }
 
-    public function payment()
+    public function payments()
     {
         return $this->hasMany(Payment::class);
     }
@@ -29,9 +29,14 @@ class Property extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function propertyImage()
+    public function propertyImages()
     {
         return $this->hasMany(PropertyImage::class);
+    }
+
+    public function subscriptions()
+    {
+        return $this->hasMany(Subscription::class);
     }
 
 }

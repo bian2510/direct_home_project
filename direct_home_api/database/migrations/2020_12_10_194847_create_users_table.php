@@ -18,12 +18,14 @@ class CreateUsersTable extends Migration
             $table->string('name')->required();
             $table->string('lastname')->required();
             $table->string('email')->unique();
-            $table->integer('phone_number')->required();
-            $table->integer('cuil')->required();
+            $table->string('phone_number')->required();
+            $table->bigInteger('cuil')->required();
             $table->string('password')->required();
-            $table->string('photo');
+            $table->string('photo')->default(NULL);
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreignId('role_id')->constrained('roles');
 
         });
     }

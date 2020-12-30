@@ -37,12 +37,12 @@ class User extends Authenticatable
         return $this->hasOne(Role::class);
     }
 
-    public function payment()
+    public function payments()
     {
         return $this->hasMany(Payment::class);
     }
 
-    public function property()
+    public function properties()
     {
         return $this->hasMany(Property::class);
     }

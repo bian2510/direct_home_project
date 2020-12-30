@@ -23,7 +23,8 @@ class CreateAddressesTable extends Migration
             $table->string('postal_code');
             $table->integer('plaque_number');
             $table->string('reference');
-            $table->string('coordinates');
+            $table->string('latitude');
+            $table->string('longitude');
             $table->integer('floor');
 
             $table->timestamps();
