@@ -23,7 +23,7 @@ class PaymentFactory extends Factory
     public function definition()
     {
         return [
-            'divise' => $this->faker->randomElement($array = array ('ARS','USD')),
+            'currency' => $this->faker->randomElement($array = array ('ARS','USD')),
             'payment_date' => $this->faker->dateTime($max = 'now', $timezone = null),
             'payment_amount' => $this->faker->numberBetween($min = 1000, $max = 50000),
             'payment_method' => $this->faker->randomElement($array = array ('deposito','transferencia','tarjeta de credito', ' tarjeta de debito')),
