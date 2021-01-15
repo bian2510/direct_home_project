@@ -7,6 +7,8 @@ defmodule DirectHomeApiWeb.Router do
 
   scope "/api", DirectHomeApiWeb do
     pipe_through :api
+
+    get "/health_check", HealthController, :health_check
   end
 
   # Enables LiveDashboard only for development
