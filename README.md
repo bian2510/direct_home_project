@@ -11,6 +11,11 @@ Build and run with docker-compose:
   docker-compose up
 ```
 
+Install dependency:
+```
+  docker-compose run --rm api mix deps.get
+```
+
 
 # Create Database & Run migrations
 create:
