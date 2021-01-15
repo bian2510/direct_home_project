@@ -13,19 +13,19 @@ Build and run with docker-compose:
 
 Install dependency:
 ```
-  docker-compose run --rm api mix deps.get
+  docker exec api mix deps.get
 ```
 
 
 # Create Database & Run migrations
 create:
 ```
-  docker-compose run --rm api mix ecto.create
+  docker exec api mix ecto.create
 ```
 
 migrate:
 ```
-  docker-compose run --rm api mix ecto.migrate
+  docker exec api mix ecto.migrate
 ```
 
 ## Apps are running in the following ports:
