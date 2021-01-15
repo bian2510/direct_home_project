@@ -22,6 +22,7 @@ services:
     volumes: 
       - ./direct_home_api/:/app/
       - /app/_build/
+      - /app/deps/
     depends_on: 
       - db
   db:
