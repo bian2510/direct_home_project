@@ -18,22 +18,23 @@ services:
       context: ./direct_home_api
       dockerfile: Dockerfile
     ports: 
-      - "8000:8000"
+      - "4000:4000"
     volumes: 
-      - ./direct_home_api/:/var/www/html/
-      - /var/www/html/vendor/
+      - ./direct_home_api/:/app/
+      - /app/_build/
     depends_on: 
       - db
   db:
     container_name: db
-    image: mysql:8.0.22
+    image: postgres:13.1
     volumes: 
-      - db_volume:/var/lib/mysql
+      - pg_data:/var/lib/postgresql/data
     ports:
-      - "6038:3306"
+      - "2345:5432"
     environment: 
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: direct_home_dev
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: direct_home_api_dev
 
 volumes:
-  db_volume:
+  pg_data:
