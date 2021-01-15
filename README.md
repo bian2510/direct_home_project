@@ -1,13 +1,29 @@
-# Instalacion del entorno:
+# Getting Started:
 
-- Descarga e instala Docker y docker-compose
-- Clona el repositorio a tu local
-- Corre docker-compose build
-- Luego docker-compose up
+Download & Install docker, docker-compose, helpfull link: https://docs.docker.com/.
+
+Build and run with docker-compose:
+
+```
+  docker-compose build
+```
+```
+  docker-compose up
+```
 
 
-## Las App`s estan corriendo en:
+# Create Database & Run migrations
+create:
+```
+  docker-compose run --rm api mix ecto.create
+```
 
-- React en http://localhost:3000
-- Phoenix en http://localhost:4000
-- Postgres en http://localhost:2345
+migrate:
+```
+  docker-compose run --rm api mix ecto.migrate
+```
+
+## Apps are running in the following ports:
+
+- React http://localhost:3000
+- Phoenix http://localhost:4000
