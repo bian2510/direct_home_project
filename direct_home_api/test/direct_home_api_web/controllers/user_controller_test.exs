@@ -18,8 +18,6 @@ defmodule DirectHomeApiWeb.UserControllerTest do
     document: nil,
     document_type: nil,
     email: nil,
-    name: nil,
-    last_name: nil,
     phone: nil,
     password: nil,
     photo: nil
@@ -28,12 +26,21 @@ defmodule DirectHomeApiWeb.UserControllerTest do
   describe "create user" do
     test "return user when data is valid", %{conn: conn} do
       conn = post(conn, Routes.user_path(conn, :create), user: @create_attrs)
-      assert
+      assert 200 = conn.status
+      assert {:ok, user} = Jason.decode(conn.resp_body)
     end
 
-    # test "return errors when data is invalid", %{conn: conn} do
-    #  conn = post(conn, Routes.post_path(conn, :create), post: @invalid_attrs)
-    #  assert html_response(conn, 200) =~ "New Post"
-    # end
+    test "return errors when data is invalid", %{conn: conn} do
+      conn = post(conn, Routes.user_path(conn, :create), user: @invalid_attrs)
+      assert 400 = conn.status
+      assert {:ok, %{"error" => "error"}} = Jason.decode(conn.resp_body)
+    end
+
+    test "return errors when email or document exist is invalid", %{conn: conn} do
+      conn = post(conn, Routes.user_path(conn, :create), user: @create_attrs)
+      conn = post(conn, Routes.user_path(conn, :create), user: @create_attrs)
+      assert 400 = conn.status
+      assert {:ok, %{"error" => "error"}} = Jason.decode(conn.resp_body)
+    end
   end
 end

@@ -12,9 +12,10 @@ defmodule DirectHomeApiWeb.UserController do
   end
 
   def create(conn, %{"user" => user_params}) do
-    %User{} |> User.changeset(user_params) |> Repo.insert() |> case do
+    User.create(%User{}, user_params)
+    |> case do
       {:ok, %User{} = user} -> json(conn, user)
-      {:error, _error} -> conn |> put_status(400) |> json(%{error: "error"})
+      {:error, error} -> conn |> put_status(400) |> json(%{error: "error"})
     end
   end
 
@@ -23,19 +24,19 @@ defmodule DirectHomeApiWeb.UserController do
     json(conn, user)
   end
 
-  #def update(conn, %{"id" => id, "book" => book_params}) do
+  # def update(conn, %{"id" => id, "book" => book_params}) do
   #  book = Store.get_book!(id)
-#
+  #
   #  with {:ok, %Book{} = book} <- Store.update_book(book, book_params) do
   #    render(conn, "show.json", book: book)
   #  end
-  #end
-#
-  #def delete(conn, %{"id" => id}) do
+  # end
+  #
+  # def delete(conn, %{"id" => id}) do
   #  book = Store.get_book!(id)
-#
+  #
   #  with {:ok, %Book{}} <- Store.delete_book(book) do
   #    send_resp(conn, :no_content, "")
   #  end
-  #end
+  # end
 end

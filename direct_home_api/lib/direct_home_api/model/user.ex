@@ -22,7 +22,6 @@ defmodule DirectHomeApi.User do
 
   @doc false
   def changeset(user, attrs) do
-    IO.inspect(attrs)
     user
     |> cast(attrs, [
       :name,
@@ -44,12 +43,15 @@ defmodule DirectHomeApi.User do
       :document_type,
       :password
     ])
-    |> put_change(:password, Bcrypt.hash_pwd_salt(attrs["password"]))
+    |> unique_constraint([:email, :document])
   end
 
-  def create(conn, user, user_params) do
-    user
-    |> changeset(user_params)
-    |> Repo.insert()
+  def create(user, attrs) do
+    changeset = changeset(user, attrs)
+
+    case changeset.valid? do
+      true -> Repo.insert(changeset)
+      false -> {:error, changeset.errors}
+    end
   end
 end
