@@ -23,6 +23,14 @@ defmodule DirectHomeApiWeb.UserControllerTest do
     photo: nil
   }
 
+
+  describe "list all users" do
+    test "return array with users", %{conn: conn} do
+      conn = get(conn, Routes.user_path(conn, :index))
+      assert 200 = conn.status
+    end
+  end
+
   describe "create user" do
     test "return user when data is valid", %{conn: conn} do
       conn = post(conn, Routes.user_path(conn, :create), user: @create_attrs)
