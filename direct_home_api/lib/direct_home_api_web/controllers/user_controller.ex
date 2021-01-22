@@ -15,7 +15,7 @@ defmodule DirectHomeApiWeb.UserController do
     User.create(%User{}, user_params)
     |> case do
       {:ok, %User{} = user} -> json(conn, user)
-      {:error, error} -> conn |> put_status(400) |> json(%{error: "error"})
+      {:error, _error} -> conn |> put_status(400) |> json(%{error: "error"})
     end
   end
 

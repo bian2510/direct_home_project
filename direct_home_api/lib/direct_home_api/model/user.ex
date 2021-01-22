@@ -4,7 +4,7 @@ defmodule DirectHomeApi.User do
 
   alias DirectHomeApi.Repo
 
-  @derive {Jason.Encoder, except: [:__meta__]}
+  @derive {Jason.Encoder, except: [:__meta__, :inserted_at, :updated_at, :password]}
 
   schema "users" do
     field :document, :integer
@@ -44,6 +44,7 @@ defmodule DirectHomeApi.User do
       :password
     ])
     |> unique_constraint([:email, :document])
+    |> put_change(:password, Bcrypt.hash_pwd_salt(attrs["password"]))
   end
 
   def create(user, attrs) do
