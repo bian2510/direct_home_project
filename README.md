@@ -2,6 +2,18 @@
 
 Download & Install docker, docker-compose, helpfull link: https://docs.docker.com/.
 
+Move to inside the project
+
+```
+  cd direct_home_project
+```
+
+Clone the phoenix api
+
+```
+  git clone https://github.com/bian2510/direct_home_api.git
+```
+
 Build and run with docker-compose:
 
 ```
