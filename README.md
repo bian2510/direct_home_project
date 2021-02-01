@@ -14,6 +14,12 @@ Clone the phoenix api
   git clone https://github.com/bian2510/direct_home_api.git
 ```
 
+Clone the react app
+
+```
+  git clone https://github.com/bian2510/direct_home_app.git
+```
+
 Build and run with docker-compose:
 
 ```
