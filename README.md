@@ -20,7 +20,7 @@ Clone the react app
   git clone https://github.com/bian2510/direct_home_app.git
 ```
 
-Move to `/direct_home_api` and create a file .env using sample.env
+Move to `/direct_home_api` and create a file .env using api_sample.env
 
 Build and run with docker-compose:
 
