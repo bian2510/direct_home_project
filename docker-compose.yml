@@ -18,6 +18,8 @@ services:
     build:
       context: ./direct_home_api
       dockerfile: Dockerfile
+    env_file:
+        - direct_home_api/.env
     ports: 
       - "4000:4000"
     volumes: 
